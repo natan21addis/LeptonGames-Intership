@@ -2,6 +2,7 @@
 
 import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
+import Categories from "./Cataegories"
 
 export default function LandingPage() {
   const [filter, setFilter] = useState("all");
@@ -14,11 +15,11 @@ export default function LandingPage() {
   });
 
   const [nextImage, setNextImage] = useState({
-    src: "harrypotter.avif",
+    src: "book/BookLa.avif",
     title: "Book",
     heading: "Dive Into Captivating Books",
     subheading: "Find your next literary adventure.",
-    bgImage: "book/img2.jpg", // Background image for Book
+    bgImage: "book/BookLa.avif", // Background image for Book
   });
 
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -60,18 +61,18 @@ export default function LandingPage() {
         bgImage: "hero.webp", // Background image for Movie
       },
       {
-        src: "book/img1.webp",
+        src: "book/BookLa.avif",
         title: "Book",
         heading: "Dive Into Captivating Books",
         subheading: "Find your next literary adventure.",
-        bgImage: "book/img2.jpg", // Background image for Book
+        bgImage: "book/books.webp", // Background image for Book
       },
       {
-        src: "places/danakil.jpg",
+        src: "book/places.avif",
         title: "Place",
         heading: "Visit Stunning Destinations",
         subheading: "Explore the world's most beautiful places.",
-        bgImage: "places/Hamer.jpg", // Background image for Place
+        bgImage: "places/go.avif", // Background image for Place
       },
     ];
 
@@ -164,65 +165,7 @@ export default function LandingPage() {
       </section>
 
       {/* Categories Section */}
-      <div className="container mx-auto py-20">
-        <h1 className="text-4xl font-bold mb-8 animate-fade-in">
-          <span className="text-red-600">Categories</span>
-        </h1>
-        <div className="flex space-x-4 mb-8">
-          <Button
-            onClick={() => setFilter("all")}
-            variant={filter === "all" ? "default" : "outline"}
-            className="animate-bounce"
-          >
-            All
-          </Button>
-          <Button
-            onClick={() => setFilter("literature")}
-            variant={filter === "literature" ? "default" : "outline"}
-            className="animate-bounce"
-          >
-            Literature
-          </Button>
-          <Button
-            onClick={() => setFilter("movies")}
-            variant={filter === "movies" ? "default" : "outline"}
-            className="animate-bounce"
-          >
-            Movies
-          </Button>
-          <Button
-            onClick={() => setFilter("places")}
-            variant={filter === "places" ? "default" : "outline"}
-            className="animate-bounce"
-          >
-            Places
-          </Button>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredPosts.map((post) => (
-            <div
-              key={post.id}
-              className="bg-white rounded-lg shadow-lg overflow-hidden animate-fade-in"
-            >
-              <div className="relative">
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className="w-full h-48 object-cover"
-                />
-                <span className="absolute top-2 left-2 bg-gray-800 text-white px-3 py-1 rounded">
-                  {post.category}
-                </span>
-              </div>
-              <div className="p-6">
-                <h2 className="text-xl font-bold mb-2">{post.title}</h2>
-                <p className="text-gray-600 mb-4">{post.description}</p>
-                <Button className="w-full animate-pulse">Read More</Button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+   <Categories/>
     </main>
   );
 }

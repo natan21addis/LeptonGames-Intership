@@ -10,39 +10,60 @@ export default function Header() {
       </div>
       <ul className="flex space-x-6">
         <li>
-          <Link href="#" className="text-white hover:bg-gray-700 px-4 py-2 rounded">
+          <Link
+            href="#"
+            className="text-white hover:bg-gray-700 px-4 py-2 rounded"
+          >
             Home
           </Link>
         </li>
         <li className="relative group">
-          <Link href="#" className="text-white hover:bg-gray-700 px-4 py-2 rounded">
+          <Link
+            href="#"
+            className="text-white hover:bg-gray-700 px-4 py-2 rounded"
+          >
             Reviews
           </Link>
           <ul className="absolute hidden group-hover:block bg-gray-800 mt-2 rounded-lg">
             <li>
-              <Link href="/movie" className="block px-4 py-2 text-white hover:bg-gray-700">
+              <Link
+                href="/movie"
+                className="block px-4 py-2 text-white hover:bg-gray-700"
+              >
                 Movie Reviews
               </Link>
             </li>
             <li>
-              <Link href="/book" className="block px-4 py-2 text-white hover:bg-gray-700">
+              <Link
+                href="/book"
+                className="block px-4 py-2 text-white hover:bg-gray-700"
+              >
                 Literature Reviews
               </Link>
             </li>
             <li>
-              <Link href="/place" className="block px-4 py-2 text-white hover:bg-gray-700">
+              <Link
+                href="/place"
+                className="block px-4 py-2 text-white hover:bg-gray-700"
+              >
                 Place Reviews
               </Link>
             </li>
           </ul>
         </li>
         <li>
-          <Link href="/about" className="text-white hover:bg-gray-700 px-4 py-2 rounded">
+          <Link
+            href="/about"
+            className="text-white hover:bg-gray-700 px-4 py-2 rounded"
+          >
             About
           </Link>
         </li>
         <li>
-          <Link href="/contact" className="text-white hover:bg-gray-700 px-4 py-2 rounded">
+          <Link
+            href="/contact"
+            className="text-white hover:bg-gray-700 px-4 py-2 rounded"
+          >
             Contact Us
           </Link>
         </li>
