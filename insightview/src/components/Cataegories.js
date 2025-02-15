@@ -108,6 +108,25 @@ export default function Categories() {
           </Link>
         ))}
       </div>
+
+      {/* See More Buttons */}
+      <div className="mt-8 flex justify-center space-x-4">
+        <Link href="/movies">
+          <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full transition-colors">
+            See More Movies
+          </button>
+        </Link>
+        <Link href="/books">
+          <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full transition-colors">
+            See More Books
+          </button>
+        </Link>
+        <Link href="/places">
+          <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full transition-colors">
+            See More Places
+          </button>
+        </Link>
+      </div>
     </div>
   );
 }

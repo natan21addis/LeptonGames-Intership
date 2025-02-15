@@ -27,7 +27,7 @@ export default function Header() {
           <ul className="absolute hidden group-hover:block bg-gray-800 mt-2 rounded-lg">
             <li>
               <Link
-                href="/movie"
+                href="/movies"
                 className="block px-4 py-2 text-white hover:bg-gray-700"
               >
                 Movie Reviews
@@ -35,7 +35,7 @@ export default function Header() {
             </li>
             <li>
               <Link
-                href="/book"
+                href="/books"
                 className="block px-4 py-2 text-white hover:bg-gray-700"
               >
                 Literature Reviews
