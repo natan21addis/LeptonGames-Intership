@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -16,8 +16,10 @@ export default function Books() {
       setLoading(true);
       setError("");
       try {
-        const res = await axios.get(`https://openlibrary.org/subjects/fiction.json?limit=50`);
-        setBooks(res.data.works);
+        const res = await axios.get(
+          "https://www.googleapis.com/books/v1/volumes?q=best+sellers&maxResults=40"
+        );
+        setBooks(res.data.items);
       } catch (err) {
         setError("Failed to fetch books. Please try again later.");
       } finally {
@@ -28,43 +30,63 @@ export default function Books() {
   }, []);
 
   const filteredBooks = books.filter((book) =>
-    book.title.toLowerCase().includes(search.toLowerCase())
+    book.volumeInfo.title.toLowerCase().includes(search.toLowerCase())
   );
 
   if (loading) return <Spinner />;
-  if (error) return <div className="text-center text-red-500">{error}</div>;
+  if (error) return <div className="text-center text-red-500 p-8">{error}</div>;
 
   return (
-    <div className="container mx-auto py-10 px-4">
-      <h1 className="text-3xl font-bold mb-6 text-center">Books</h1>
-      <div className="flex items-center justify-between mb-8">
-        <input
-          type="text"
-          placeholder="Search books..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="w-full md:w-1/2 px-4 py-2 border border-gray-300 rounded-lg"
-        />
+    <main className="min-h-screen">
+      {/* Hero Section */}
+      <div className="relative text-white py-32 px-8 min-h-[60vh] bg-gradient-to-r from-gray-900 to-red-900">
+        <div className="container mx-auto text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in-up">
+            Discover Literary Treasures
+          </h1>
+          <p className="text-xl mb-8 animate-fade-in-up delay-100">
+            Explore timeless classics and modern masterpieces
+          </p>
+        </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredBooks.map((book) => (
-          <Card key={book.key} className="h-full overflow-hidden shadow-lg hover:shadow-xl">
-            <CardHeader className="p-0 border-b">
-              <img
-                src={`https://covers.openlibrary.org/b/id/${book.cover_id}-L.jpg`}
-                alt={book.title}
-                className="w-full h-64 object-cover"
-              />
-            </CardHeader>
-            <CardContent className="p-4">
-              <CardTitle className="mb-2">{book.title}</CardTitle>
-              <CardDescription>
-                {book.authors?.[0]?.name || "Unknown Author"}
-              </CardDescription>
-            </CardContent>
-          </Card>
-        ))}
+
+      <div className="container mx-auto py-10 px-4 -mt-32 relative z-10">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="flex items-center justify-between mb-8">
+            <input
+              type="text"
+              placeholder="Search books..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-full px-6 py-3 border border-gray-200 rounded-full transition-all focus:ring-2 focus:ring-red-500 focus:border-transparent"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredBooks.map((book) => (
+              <Card 
+                key={book.id} 
+                className="group overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+              >
+                <CardHeader className="p-0 relative">
+                  <img
+                    src={book.volumeInfo.imageLinks?.thumbnail.replace('zoom=1', 'zoom=2') || 'https://via.placeholder.com/300x450'}
+                    alt={book.volumeInfo.title}
+                    className="w-full h-80 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                </CardHeader>
+                <CardContent className="p-6 relative">
+                  <CardTitle className="text-2xl mb-2">{book.volumeInfo.title}</CardTitle>
+                  <CardDescription>
+                    {book.volumeInfo.authors?.join(", ") || "Unknown Author"}
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
+    </main>
   );
 }

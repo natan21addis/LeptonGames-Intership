@@ -6,12 +6,12 @@ export default function Header() {
     <nav className="fixed top-0 left-0 right-0 flex justify-between items-center p-4 backdrop-blur-md bg-opacity-90 transition-colors hover:bg-gray-900 bg-black z-50">
       <div className="text-3xl font-bold bg-gray-800 rounded-lg px-4 py-2">
         <span className="text-red-600">Insight</span>
-        <span className="text-white">Rater</span>
+        <span className="text-white">ter</span>
       </div>
       <ul className="flex space-x-6">
         <li>
           <Link
-            href="#"
+            href="/"
             className="text-white hover:bg-gray-700 px-4 py-2 rounded"
           >
             Home
