@@ -94,22 +94,10 @@ export default function Header() {
               </ul>
             </li>
             <li>
-              <Link
-                href="/about"
-                className="block text-white hover:bg-gray-700 px-4 py-2 rounded"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                About
-              </Link>
+             
             </li>
             <li>
-              <Link
-                href="/contact"
-                className="block text-white hover:bg-gray-700 px-4 py-2 rounded"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Contact Us
-              </Link>
+             
             </li>
             <li>
               <Link
