@@ -36,7 +36,7 @@ To run the application locally:
 
 1. Clone the repository using SSH:
    ```bash
-   git clone <your-repository-ssh-link>
+   git clone git@github.com:natan21addis/insightRater.git
 Navigate to the project directory:
 bash
 
@@ -58,7 +58,7 @@ Live Demo on Vercel
 
 Motivation
 The concept and design of this project were inspired by a Figma design that motivated me to create a clean and visually appealing application. I built this project with the goal of showcasing my skills in web development and my ability to work under tight deadlines.
-
+ https://www.figma.com/file/14KkPkDB1QOj5IVjqPeSHI/IP-Project-Layouts?type=design&node-id=0-1&mode=design&t=v9psZkKhFwUlYd4s-0
 This project is just the beginning, and I have many ideas to improve it further. However, due to the requirements and time limitations, I focused on delivering the core features. I am confident that this project highlights my potential, and I look forward to demonstrating my skills during the internship.
 
 Technologies Used

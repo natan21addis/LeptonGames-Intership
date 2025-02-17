@@ -79,6 +79,7 @@ export default function LandingPage() {
         setNextImage(movies[1]);
       } catch (err) {
         setError("Failed to fetch data. Please try again later.");
+        console.log(err);
       } finally {
         setLoading(false);
       }
@@ -185,7 +186,7 @@ export default function LandingPage() {
             Explore World Wonders
           </h1>
           <p className="text-gray-600 max-w-2xl mx-auto animate-fade-in">
-            Discover iconic films, celebrated literature, and breathtaking landmarks that define our world's cultural heritage.
+            Discover iconic films, celebrated literature, and breathtaking landmarks that define our worlds cultural heritage.
           </p>
         </div>
       </section>
