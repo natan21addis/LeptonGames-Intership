@@ -25,6 +25,7 @@ export default function Places() {
         setPlaces(res.data.results);
       } catch (err) {
         setError("Failed to fetch places. Please try again later.");
+        console.log(err);
       } finally {
         setLoading(false);
       }

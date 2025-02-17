@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Spinner from "../../components/spinner";
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "../../components/ui/card";
+import { console } from "inspector";
 
 export default function Books() {
   const [books, setBooks] = useState([]);
@@ -22,6 +23,7 @@ export default function Books() {
         setBooks(res.data.items);
       } catch (err) {
         setError("Failed to fetch books. Please try again later.");
+        console.log(err);
       } finally {
         setLoading(false);
       }

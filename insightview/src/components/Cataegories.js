@@ -30,6 +30,7 @@ export default function Categories() {
         });
       } catch (err) {
         setError("Failed to fetch data. Please try again later.");
+        console.log(err);
       } finally {
         setLoading(false);
       }

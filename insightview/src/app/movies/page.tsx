@@ -35,6 +35,7 @@ export default function Movies() {
         setMovies(res.data.results);
       } catch (err) {
         setError("Failed to fetch movies. Please try again later.");
+        console.log(err);
       } finally {
         setLoading(false);
       }
